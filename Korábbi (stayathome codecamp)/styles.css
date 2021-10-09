@@ -1,0 +1,54 @@
+.name {
+    font-family: 'Anton', sans-serif;
+    font-size: 100px;
+}
+
+.greenfox {
+    margin-top: -20px;
+
+}
+
+
+
+.container {
+    position: absolute;
+    top: 30%;
+   left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    text-align: center;
+    }
+
+.title {
+    
+    margin-bottom: 80px;
+    font-family: 'Inconsolata', monospace;
+
+}
+
+
+
+ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    margin-top: 20px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Inconsolata', monospace;
+    
+}
+
+.projectlinkslist {
+    list-style-type: square;
+    list-style-position: inside;
+    
+}
