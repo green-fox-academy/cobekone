@@ -1,6 +1,6 @@
 'use strict';
 
-let lineCount: number = 16;
+let lineCount: number = 1000;
 
 // Write a program that draws a
 // square like this:

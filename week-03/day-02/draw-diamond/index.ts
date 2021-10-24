@@ -10,7 +10,7 @@
 // ****
 //
 // The triangle should have as many lines as lineCount is
-let lineCount: number = 19;
+let lineCount: number = 219;
 let stars: string = "";
 let spaces: string = "";
 
