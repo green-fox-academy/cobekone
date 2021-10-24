@@ -10,6 +10,9 @@ let lineCount: number = 10;
 // ****
 //
 // The triangle should have as many lines as lineCount is
+
+export function drawPyramid(lineCount: number) {
+
 let stars: string = "";
 let spaces: string = "";
 
@@ -18,7 +21,7 @@ for (let a = 0; a < lineCount; a++) {
     spaces = "";
     stars = "";
 
-    for (let b = lineCount; b > 0 + a; b--) {
+    for (let b = lineCount; b > a + 1; b--) {
       spaces = spaces + " ";
       
     }
@@ -31,3 +34,5 @@ for (let a = 0; a < lineCount; a++) {
   console.log (spaces + stars)
 
 }
+}
+drawPyramid (lineCount)
