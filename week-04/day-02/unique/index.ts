@@ -1,7 +1,7 @@
 //  Create a function that takes a list of numbers as a parameter
 //  and returns a list of numbers where every number is unique (occurs only once)
 
-function findUniqueItems(arr: number[]) {
+export function findUniqueItems(arr: number[]) {
 console.log (arr);
 let b = arr.length;
 for (let a = 0; a < arr.length; a++) {    
@@ -12,8 +12,9 @@ for (let b = arr.length; b > a; b--) {
     }
 }}
 console.log (arr)
+return (arr)
 }
 
 //  Example
-console.log(findUniqueItems([1, 11, 34, 11, 52, 11, 11, 11, 61, 1, 34]))
+findUniqueItems([1, 11, 34, 11, 52, 11, 11, 11, 61, 1, 34])
 //  should print: `[1, 11, 34, 52, 61]`

@@ -6,5 +6,6 @@ export function sum(a:number) {
        sumofnumbers += b;
    } 
    console.log(sumofnumbers)
+   return (sumofnumbers)
 }
 
