@@ -5,10 +5,10 @@
 
 let toBeReversed: string = `.eslaf eb t'ndluow ecnetnes siht ,dehctiws erew eslaf dna eurt fo sgninaem eht fI`;
 export function reverse(value: string) {
-    let splitted: string[] = toBeReversed.split("");
+    let splitted: string[] = value.split("");
     let reversed: string[] = [];
 
-    for (let i = 0; i < toBeReversed.length; i++) {
+    for (let i = 0; i < value.length; i++) {
         reversed[i] = splitted [splitted.length - 1 - i]
 
     }
