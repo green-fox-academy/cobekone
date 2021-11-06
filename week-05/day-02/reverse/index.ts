@@ -4,7 +4,7 @@
 // Use it on this reversed string to check it!
 
 let toBeReversed: string = `.eslaf eb t'ndluow ecnetnes siht ,dehctiws erew eslaf dna eurt fo sgninaem eht fI`;
-function reverse(value: string) {
+export function reverse(value: string) {
     let splitted: string[] = toBeReversed.split("");
     let reversed: string[] = [];
 
@@ -18,5 +18,3 @@ function reverse(value: string) {
 }
 
 console.log(reverse(toBeReversed));
-
-export = reverse;
