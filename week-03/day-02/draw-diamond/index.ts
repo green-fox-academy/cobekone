@@ -1,16 +1,7 @@
 'use strict';
 
 
-
-// Write a program that draws a triangle like this:
-//
-// *
-// **
-// ***
-// ****
-//
-// The triangle should have as many lines as lineCount is
-let lineCount: number = 219;
+let lineCount: number = 20;
 let stars: string = "";
 let spaces: string = "";
 
@@ -20,7 +11,6 @@ for (let a = 0; a < lineCount; a++) {
 
   if (a < lineCount / 2) {
   
-
     spaces = "";
     stars = "";
 
