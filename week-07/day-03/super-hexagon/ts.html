@@ -12,6 +12,18 @@
   </head>
   <body>
     <canvas width="600" height="400" class="main-canvas"></canvas>
+    
+    <div>
+    <div style="margin-left: 110px; float: left;">
+      <input type="range" min="1" max="100" value="10" class="scale" id="scaleID">
+      <div> Scale </div>
+    </div>
+    <div class="sideCount" style="margin-left: 150px; float: left; ">
+      <input type="range" min="1" max="100" value="2" class="sideCount" id="sideCountID">
+      <div> Side count </div>
+    </div>
+    </div>
+
     <script>let exports = {};</script>
     <script type="text/typescript" src="super-hexagon.ts"></script>
 
