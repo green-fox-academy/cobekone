@@ -6,6 +6,14 @@ export {};
 
 // DO NOT TOUCH THE CODE ABOVE THIS LINE
 
+//ideiglenes koordináta jelölő function
+
+function markCoord(x, y) {
+  ctx.beginPath();
+  //ctx.moveTo(x, y)
+  ctx.arc(x, y, 2, 0, Math.PI * 2);
+  ctx.stroke();
+}
 
 function drawLine(x1: number, y1:number, x2: number, y2:number, color) {
     ctx.beginPath();
@@ -17,9 +25,10 @@ function drawLine(x1: number, y1:number, x2: number, y2:number, color) {
 
 let h: number = 100; //ág hossza
 let x: number = 10; //ág osztása
-let t: number = 20; //ágak száma
+let t: number = 10; //ágak száma
+let coords: number [][][] = [[[0],[0]]]; //koordináta tároló
 
-function star {
+function star () {
   for (var i = 0; i < t; i++) {
   drawLine(
     canvas.width/2,
@@ -27,9 +36,41 @@ function star {
     canvas.width/2 + Math.sin((2*Math.PI/t)*i)*h,
     canvas.height/2 + Math.cos((2*Math.PI/t)*i)*h
     )
+    markCoord (canvas.width / 2 + Math.sin((2 * Math.PI / t) * i) * h,
+        canvas.height / 2 + Math.cos((2 * Math.PI / t) * i) * h)
 }}
 
-star()
+
+function starCoord () {
+  for (var i = 0; i < t; i++) {
+  for (var j = 0; j < x; j++) {
+  
+    markCoord (canvas.width / 2 + Math.sin((2 * Math.PI / t) * i) * h / x * j,
+        canvas.height / 2 + Math.cos((2 * Math.PI / t) * i) * h / x * j);
+        
+        
+}}}
+
+ 
+
+
+
+
+markCoord (10,10);
+star();
+starCoord();
+
+coords [0][0][0] = 1; //első vonal első x
+coords [0][0][1] = 2; //első vonal első y
+coords [0][1][0] = 3; //első vonal 2. x
+coords [0][1][1] = 4; //első vonal 2. y
+
+/*coords [1][0][0] = 1; //2. vonal első x
+coords [1][0][1] = 2; //2. vonal első y
+coords [1][1][0] = 3; //2. vonal 2. x
+coords [1][1][1] = 4; //2. vonal 2. y*/
+console.log (coords);
+
 
 /*
 //bal alsó kvadráns
