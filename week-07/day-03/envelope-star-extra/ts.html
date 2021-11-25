@@ -11,7 +11,22 @@
     </style>
   </head>
   <body>
-    <canvas width="600" height="400" class="main-canvas"></canvas>
+    <div>
+    <canvas width="1000" height="800" class="main-canvas"></canvas>
+  </div>
+    <div style="margin-left: 110px; float: left;">
+      <input type="range" min="1" max="1000" value="200" class="scale" id="scaleID">
+      <div> Scale </div>
+    </div>
+    <div style="margin-left: 200px; float: left; ">
+      <input type="range" min="1" max="100" value="4" class="starcorner" id="starcornerID">
+      <div> Star corners </div>
+    </div>
+      <div style="margin-left: 200px; float: left;">
+        <input type="range" min="1" max="100" value="10" class="divisions" id="divisionsID">
+        <div> Divisions </div>
+      </div>
+
     <script>let exports = {};</script>
     <script type="text/typescript" src="envelope-star-ts.ts"></script>
 
