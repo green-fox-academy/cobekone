@@ -24,6 +24,7 @@ try {
     
 } catch (error) {
     console.log ('File not found')
+    return ('File not found')
 }
 
 
