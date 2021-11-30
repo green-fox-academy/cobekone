@@ -4,12 +4,13 @@
 
 'use strict'
 
-let numbers: number[] = [1, 2, 3, 4, 5, 6]
+let numbers: number[] = [1, 2, 3, 8, 5, 6]
 
-numbers.map((value: number, index: number) => {
+numbers = numbers.map((value: number, index: number) => {
 if (index === 3) {
     value = 4;
-}
+    return value;
+}else{return value}
 })
 
-console.log (numbers)
+console.log (numbers[3])
