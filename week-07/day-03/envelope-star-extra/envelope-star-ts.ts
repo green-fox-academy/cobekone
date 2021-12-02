@@ -87,7 +87,9 @@ function starCoord () {
 /*      markCoord (canvas.width / 2 + Math.sin((2 * Math.PI / t) * i) * h / x * j,
         canvas.height / 2 + Math.cos((2 * Math.PI / t) * i) * h / x * j); */  //Ezt itt visszakapcsolva jelöli a koordinátákat a vonalakon
         
-        coords [varLength] = [j, (canvas.width / 2 + Math.sin((2 * Math.PI / t) * i) * h / x * j), canvas.height / 2 + Math.cos((2 * Math.PI / t) * i) * h / x * j];
+        coords [varLength] = [j, (
+        canvas.width / 2 + Math.sin((2 * Math.PI / t) * i) * h / x * j), //x koordináta
+        canvas.height / 2 + Math.cos((2 * Math.PI / t) * i) * h / x * j]; //y koordináta
         varLength--
 }}
 
@@ -123,7 +125,7 @@ for (let j = 0; j <= (t-1) * x; j+=x){
 }
 }
 
-star();
+ star();
 starCoord();
 
 /* 
