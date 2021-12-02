@@ -1,4 +1,4 @@
-class Animal {
+export class Animal {
     private hunger: number;
     private thirst: number;
 
@@ -16,6 +16,12 @@ class Animal {
     play(){
         this.hunger ++;
         this.thirst ++;
+    }
+    getHunger(){
+        return this.hunger
+    }
+    getThirst(){
+        return this.thirst
     }
 }
 
