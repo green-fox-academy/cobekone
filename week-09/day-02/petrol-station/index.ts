@@ -16,7 +16,6 @@ class Car {
         this.gasAmount = 0;
         this.capacity = 100;    
     }
-
 }
 
 let station1 = new Station;

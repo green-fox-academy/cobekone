@@ -14,7 +14,3 @@ function maximumFinder(inputArray:number[]):number[] {
 
 let randomArray: number[] = [1, 10, 3, 4]
 console.log(maximumFinder(randomArray))
-
-/* console.log(randomArray[0]>randomArray[1])
-randomArray.splice(1,1)
-console.log(randomArray) */

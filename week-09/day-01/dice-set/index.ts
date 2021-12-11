@@ -69,4 +69,5 @@ class DiceSet {
   for (let i = 0; i < diceSet.numOfDices; i++) {
       rerollUntil6(i)  
   }
+  
   console.log(diceSet.getCurrent());

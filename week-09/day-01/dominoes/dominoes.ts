@@ -30,6 +30,4 @@ for (let i: number = 0; i < dominoes.length; i++) {
     }
 }
 
-/* console.log(dominoes[0].getValues()[0]) */
-
 print(dominoes);
