@@ -26,7 +26,7 @@ function maxSum(inputArray:number[]):number {
     return inputArraySum
 }
 
-let toInputArray: number[] = [2, 1, 12, 6, 0]
+let toInputArray: number[] = [2, 1, 12, 6, 20]
 console.log(maxSum(toInputArray))
 
 //Another solution: arrange the array in a way to have the smallest number on the first or last
