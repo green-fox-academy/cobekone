@@ -10,9 +10,4 @@ export class Calculator {
   }
 }
 
-let array1: number[] = [0, 6, 7, 1];
 export let calculator1 = new Calculator();
-
-console.log(calculator1.sum(array1));
-
-console.log(calculator1.sum([3, 7]));
