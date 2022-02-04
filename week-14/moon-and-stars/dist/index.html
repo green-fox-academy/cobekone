@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Workshop: CreateElement</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <section class="world">
+      <div class="star" style="left:50vw;top:50vh;"></div>
+      <div class="moon"></div>
+      <div class="horizon">
+        <div class="tree one">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="tree two">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </section>
+  </body>
+    <script src="bundle.js"></script>
+</html>
+
+- At the beginning, add (append) ten stars to random coordinates via JavaScript. You'll have to create an element with class 'star' and set it an inline style. The left and top coordinates should be in % or vw/vh units so that the stars move if the window size changes. </br></br>
+
+- On click anywhere on section.world, add a star beneath the cursor. </br></br>
+
+- On random interval, a star should fall. That means you should pick a random star on random interval and give it fallen class, until all stars are fallen. </br></br>
+
+- Make trees grow on click! </br></br>
+
+- 💪 Add a rule that a new star cannot be added within 50px radius of any other. </br></br>
+
+- 💪 Move moon around by dragging it with mouse. </br></br>
