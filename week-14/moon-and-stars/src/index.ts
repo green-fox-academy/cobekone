@@ -8,6 +8,12 @@ function randomMilisec() {
   return Math.random() * 5000;
 }
 
+let starCoordinates: number[][] = [];
+function addStarCoord(x: number, y: number) {
+  starCoordinates.push([x, y]);
+  console.log(starCoordinates);
+}
+
 function randomFallenClass() {
   let currentStars = document.querySelectorAll(".star");
   let randomStarNumber = Math.floor(Math.random() * currentStars.length);
@@ -40,6 +46,10 @@ for (let i = 0; i < 10; i++) {
   div.style.left = `${randomPercentage()}vw`;
   div.style.top = `${randomPercentage() / 2}vw`;
   document.querySelector(".world").appendChild(div);
+
+  /*   let xPixel = 0
+  let yPixel = 0
+  let createdelement = element.getBoundingClientRect(); */
 }
 
 function starPlacer(event: any) {
