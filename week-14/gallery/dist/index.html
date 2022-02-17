@@ -8,17 +8,51 @@
       <link rel="stylesheet" href="style.css">
   </head>
   <body>
-      <div class="center-div">
-        <div class="arrow" id="go-left">
-            <img src="./arrow.svg" class="arrow-svg" alt="">
-        </div>  
-        <div class="current-image"></div>
-        <div class="arrow" id="go-right">
-            <img src="./arrow.svg" class="arrow-svg mirror" alt="">
-        </div>  
 
+      
+      
+      <div class="center-div current-image-block">
+        <div class="arrow" id="go-left">
+            <div class="arrow-svg-container arrow">
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 14.906 22.75">
+                    <path id="Shape_3_copy" data-name="Shape 3 copy" class="arrow-svg" d="M129.01,311.107a2.45,2.45,0,0,1-3.536,0L114.868,300.5l10.606-10.607a2.5,2.5,0,1,1,3.536,3.536l-7.071,7.071,7.071,7.071A2.449,2.449,0,0,1,129.01,311.107Z" transform="translate(-114.875 -289.125)"/>
+                  </svg>
+            </div>
+        </div>  
+        <div class="current-image">
+            <div class="current-image-text-block">
+                <div class="title-of-image">Kép címe</div>
+                <div class="description-of-image">Kép hosszas leírása</div>
+        </div>
+        </div>
+        <div class="arrow" id="go-right">
+            <div class="arrow-svg-container arrow mirror">
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 14.906 22.75">
+                    <path id="Shape_3_copy" data-name="Shape 3 copy" class="arrow-svg" d="M129.01,311.107a2.45,2.45,0,0,1-3.536,0L114.868,300.5l10.606-10.607a2.5,2.5,0,1,1,3.536,3.536l-7.071,7.071,7.071,7.071A2.449,2.449,0,0,1,129.01,311.107Z" transform="translate(-114.875 -289.125)"/>
+                  </svg>
+            </div>
+        </div>  
       </div>
-      <div class="center-div small-image-container"></div>
+
+
+
+      <div>
+
+        <div class="title-container">
+          <div class = "hovering-title-block-wrapper">
+                <div class = "hovering-title-block">
+                    <div class="hovering-title">example title</div>
+                    <div class="hovering-title-arrow"></div>
+                </div>
+            </div>
+        </div>
+
+            <div class="center-div small-image-container">
+
+                
+            </div>
+      </div>
+
       <div>
           <img src="./slider.png" class="peldakep" alt="">
       </div>

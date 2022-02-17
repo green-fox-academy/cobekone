@@ -15,8 +15,8 @@ body {
   position: absolute;
   bottom: 0px;
   left: 0px;
-  display: none;
-  height: 400px;
+  display: visible;
+  height: 100px;
   z-index: -1;
 }
 
@@ -27,24 +27,41 @@ body {
   margin-top: 20vh;
   display: flex;
   justify-content: space-between;
+  max-width: 1000px;
+}
+
+.current-image-block {
+  box-shadow: 0px 6px 10px rgb(77, 77, 77);
+  z-index: 1;
 }
 
 .current-image {
   width: 90%;
   background-size: cover;
+  position: relative;
 }
 
 .arrow {
   width: 5%;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 .arrow-svg {
+  fill: #4e4e4e;
+  fill-rule: evenodd;
+}
+
+.arrow:hover .arrow-svg {
+  fill: rgb(189, 189, 189);
+}
+
+.arrow-svg-container {
   width: 60%;
 }
 
-.arrow-svg.mirror {
+.mirror {
   transform: rotate(180deg);
 }
 
@@ -64,7 +81,88 @@ body {
   border: 6px solid white;
   border-radius: 5px;
   box-shadow: 0px 6px 10px rgb(77, 77, 77);
+  cursor: pointer;
+}
+
+.small-images:hover {
+  margin-top: -5px;
 }
 
 .selected {
+}
+
+.title-container {
+  /*   display: flex; */
+  margin-top: -20px;
+  margin-bottom: -20px;
+  /*   justify-content: center; */
+}
+
+.hovering-title-block-wrapper {
+  z-index: 100;
+  width: 102px;
+  max-width: 102px;
+  display: flex;
+  justify-content: center;
+}
+
+/* .small-images:hover .hovering-title-block-wrapper {
+  visibility: visible !important;
+  background-color: red;
+} */
+
+.hovering-title-block {
+  /*     position: fixed;
+  left: 100px;
+  top: 100px;
+  z-index: 100; */
+  /*   display: block; */
+  z-index: 100;
+  visibility: hidden;
+  margin-left: 100px;
+}
+
+.hovering-title {
+  /*   position: fixed;
+  left: 100px;
+  top: 100px; */
+  white-space: nowrap;
+  width: fit-content;
+  background: black;
+  color: white;
+  padding: 5px;
+  box-shadow: 0px 6px 10px rgb(77, 77, 77);
+}
+
+.hovering-title-arrow {
+  position: relative;
+  left: calc(50% - 5px);
+  top: -5px;
+  background: black;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  box-shadow: 0px 6px 10px rgb(77, 77, 77);
+}
+
+.current-image-text-block {
+  background-color: rgba(0, 0, 0, 0.452);
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.title-of-image {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.description-of-image {
+  color: #afafaf;
 }
