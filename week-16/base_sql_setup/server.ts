@@ -19,7 +19,7 @@ conn.connect((err: Error) => {
     return;
   }
   console.log("Connection established");
-  /*   conn.end(); */
+  /*   conn.end(); */ //Ettől nálam sem hajlandó működni
 });
 
 /* conn.query("SELECT * FROM movie LIMIT 1;", (err: any, rows: any) => {
