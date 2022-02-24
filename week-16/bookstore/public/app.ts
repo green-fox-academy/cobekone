@@ -9,6 +9,12 @@ function getBooks() {
     .catch((err) => console.log("Err", err));
 }
 
+function createCellElement(value: string): HTMLTableCellElement {
+  const td = document.createElement("td");
+  td.innerText = value;
+  return td;
+}
+
 getBooks().then((books) => {
   console.log(books);
 
@@ -24,9 +30,3 @@ getBooks().then((books) => {
     document.querySelector("table")?.appendChild(newLine);
   }
 });
-
-function createCellElement(value: string): HTMLTableCellElement {
-  const td = document.createElement("td");
-  td.innerText = value;
-  return td;
-}

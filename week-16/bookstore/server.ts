@@ -22,50 +22,88 @@ conn.connect((err: Error) => {
     return;
   }
   console.log("Connection established");
-  /*   conn.end(); */
 });
-
-/* conn.query("SELECT * FROM movie LIMIT 1;", (err: any, rows: any) => {
-  if (err) {
-    console.error(`cannot retrieve data ${err.toString()}`);
-    return null;
-  }
-
-  console.log("Data received from Db:\n");
-  console.log(rows);
-}); */
-
-app.get("/books", (_req: Request, res: Response) => {
-  conn.query(
-    "SELECT book_mast.book_name, aut_name, cate_descrip, pub_name, book_price FROM book_mast JOIN author ON book_mast.aut_id = author.aut_id JOIN category ON book_mast.cate_id = category.cate_id JOIN publisher ON book_mast.pub_id = publisher.pub_id;",
-    (err: any, books: any) => {
-      if (err) {
-        console.error(`Cannot retrieve data: ${err.toString()}`);
-        res.sendStatus(500);
-        return null;
-      }
-      const result = { books };
-      /*       console.log(result); */
-      res.json(result);
-      return;
-    }
-  );
-});
-
-app.get("/books/query*", (req: Request, res: Response) => {
-  console.log("/books szöveg");
+app.get("/books", (req: Request, res: Response) => {
   let inputTask = req.query;
   console.log(inputTask);
 
-  let queryTextTask = "cate_descrip";
+  let queryTextTask = Object.keys(inputTask);
   console.log(queryTextTask);
-  let queryTextValue = "Computers";
+  let queryTextValue: any = Object.values(inputTask);
   console.log(queryTextValue);
 
-  conn.query(
-    `SELECT book_mast.book_name, aut_name, cate_descrip, pub_name, book_price FROM book_mast JOIN author ON book_mast.aut_id = author.aut_id JOIN category ON book_mast.cate_id = category.cate_id JOIN publisher ON book_mast.pub_id = publisher.pub_id WHERE ? = ?;`,
-    [queryTextTask, queryTextValue],
-    (err: any, books: any) => {
+  //Ez itt az eredeti mindent kilistázó:
+  /*   if (queryTextTask.length == 0) {
+    conn.query(
+      "SELECT book_mast.book_name, aut_name, cate_descrip, pub_name, book_price FROM book_mast JOIN author ON book_mast.aut_id = author.aut_id JOIN category ON book_mast.cate_id = category.cate_id JOIN publisher ON book_mast.pub_id = publisher.pub_id;",
+      (err: any, books: any) => {
+        if (err) {
+          console.error(`Cannot retrieve data: ${err.toString()}`);
+          res.sendStatus(500);
+          return null;
+        }
+        const result = { books };
+        res.json(result);
+        return;
+      }
+    );
+  } */
+
+  //Ez itt a weboldalról vette az adatokat:
+  /* 
+  function queryConcat() {
+    let result =
+      "SELECT book_mast.book_name, aut_name, cate_descrip, pub_name, book_price FROM book_mast JOIN author ON book_mast.aut_id = author.aut_id JOIN category ON book_mast.cate_id = category.cate_id JOIN publisher ON book_mast.pub_id = publisher.pub_id WHERE ";
+    for (let i = 0; i < queryTextTask.length; i++) {
+      result += `${queryTextTask[i]} = `;
+      result += `"${queryTextValue[i]}"`;
+      if (queryTextTask.length - 1 == i) {
+      } else {
+        result += ` AND `;
+      }
+    }
+    console.log("ez a result" + result);
+    return result;
+  } */
+
+  //De a tesztelés kedvéért ez van:
+
+  let testQueryTextTask: string[] = ["cate_descrip", "book_price"];
+  let testQueryTextValue: string[] = ["Computers", "45"];
+  function queryConcat() {
+    let result =
+      "SELECT book_mast.book_name, aut_name, cate_descrip, pub_name, book_price FROM book_mast JOIN author ON book_mast.aut_id = author.aut_id JOIN category ON book_mast.cate_id = category.cate_id JOIN publisher ON book_mast.pub_id = publisher.pub_id";
+    if (testQueryTextTask.length == 0) {
+      return result;
+    }
+    result += " WHERE ";
+    for (let i = 0; i < testQueryTextTask.length; i++) {
+      result += `${testQueryTextTask[i]} = `;
+      result += `"${testQueryTextValue[i]}"`;
+      if (testQueryTextTask.length - 1 == i) {
+      } else {
+        result += ` AND `;
+      }
+    }
+    console.log("ez a result" + result);
+    return result;
+  }
+
+  conn.query(queryConcat(), queryTextValue, (err: any, books: any) => {
+    if (err) {
+      console.error(`Cannot retrieve data: ${err.toString()}`);
+      res.sendStatus(500);
+      return null;
+    }
+    const result = { books };
+    console.log(result);
+    res.json(result);
+    return;
+  });
+
+  //Ez is akkor kéne, ha az oldal küldené az adatokat:
+  /*   if (queryTextTask && queryTextTask[0] === "cate_descrip") {
+    conn.query(queryConcat(), queryTextValue, (err: any, books: any) => {
       if (err) {
         console.error(`Cannot retrieve data: ${err.toString()}`);
         res.sendStatus(500);
@@ -75,8 +113,8 @@ app.get("/books/query*", (req: Request, res: Response) => {
       console.log(result);
       res.json(result);
       return;
-    }
-  );
+    });
+  } */
 });
 
 app.listen(port, () => {
