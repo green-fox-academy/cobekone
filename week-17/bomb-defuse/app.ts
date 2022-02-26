@@ -1,15 +1,16 @@
+(document.querySelector(".display") as HTMLElement).innerHTML = "10";
+
 (document.querySelector("button") as HTMLElement).addEventListener(
   "click",
   () => {
     (document.querySelector(".display") as HTMLElement).innerHTML =
       "bomb defused";
-    console.log("defused");
 
     clearTimeout(counting2);
   }
 );
 
-let i: number = 3;
+let i: number = 10;
 let counting2 = setInterval(() => {
   if (i <= 0) {
     (document.querySelector(".display") as HTMLElement).innerHTML =
