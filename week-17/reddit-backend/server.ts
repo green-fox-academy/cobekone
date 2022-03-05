@@ -82,6 +82,68 @@ app.post("/posts", (req: Request, res: Response) => {
   );
 });
 
+app.put("/posts/:id/upvote", (_req: Request, _res: Response) => {
+  const { id } = _req.params;
+
+  conn.query(
+    "UPDATE `reddit`.`posts` SET `score` = score + 1 WHERE (`id` = '" +
+      id +
+      "');",
+    (err: any, _posts: any) => {
+      if (err) {
+        console.error(`Cannot retrieve data: ${err.toString()}`);
+        _res.sendStatus(500);
+        return null;
+      }
+      conn.query(
+        "SELECT * FROM posts WHERE id = ?",
+        [id],
+        (err: any, upvotedPost: any) => {
+          if (err) {
+            console.error(`Cannot retrieve data: ${err.toString()}`);
+            _res.sendStatus(500);
+            return null;
+          }
+          const resultObject = { upvotedPost };
+
+          return _res.status(200).send(resultObject);
+        }
+      );
+    }
+  );
+});
+
+app.put("/posts/:id/downvote", (_req: Request, _res: Response) => {
+  const { id } = _req.params;
+
+  conn.query(
+    "UPDATE `reddit`.`posts` SET `score` = score -1 WHERE (`id` = '" +
+      id +
+      "');",
+    (err: any, _posts: any) => {
+      if (err) {
+        console.error(`Cannot retrieve data: ${err.toString()}`);
+        _res.sendStatus(500);
+        return null;
+      }
+      conn.query(
+        "SELECT * FROM posts WHERE id = ?",
+        [id],
+        (err: any, upvotedPost: any) => {
+          if (err) {
+            console.error(`Cannot retrieve data: ${err.toString()}`);
+            _res.sendStatus(500);
+            return null;
+          }
+          const resultObject = { upvotedPost };
+
+          return _res.status(200).send(resultObject);
+        }
+      );
+    }
+  );
+});
+
 app.listen(port, () => {
   console.log(`Connected to localhost:${port}`);
 });
