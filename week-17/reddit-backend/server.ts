@@ -144,6 +144,36 @@ app.put("/posts/:id/downvote", (_req: Request, _res: Response) => {
   );
 });
 
+app.delete("/posts/:id", (_req: Request, _res: Response) => {
+  const { id } = _req.params;
+
+  conn.query(
+    "SELECT * FROM posts WHERE id = ?",
+    [id],
+    (err: any, deletedPost: any) => {
+      if (err) {
+        console.error(`Cannot retrieve data: ${err.toString()}`);
+        _res.sendStatus(500);
+        return null;
+      }
+      const resultObject = { deletedPost };
+      _res.json(resultObject);
+
+      conn.query(
+        "DELETE FROM posts WHERE id = ?",
+        [id],
+        (err: any, _res: any) => {
+          if (err) {
+            console.error(`Cannot retrieve data: ${err.toString()}`);
+            _res.sendStatus(500);
+            return null;
+          }
+        }
+      );
+    }
+  );
+});
+
 app.listen(port, () => {
   console.log(`Connected to localhost:${port}`);
 });
