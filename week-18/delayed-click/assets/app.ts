@@ -1,10 +1,10 @@
-let buttonOnce = document.querySelector("button");
+let button = document.querySelector("button");
 
-function onceClick() {
-  console.log(Date());
-  window.removeEventListener("click", onceClick);
-  //vagy így, de ezt amúgyis illik itthagyni, hogy ne is próbáljon ráklikkelni:
-  (buttonOnce as HTMLButtonElement).disabled = true;
+function showText() {
+  setTimeout(() => {
+    (document.querySelector("div") as HTMLElement).innerHTML =
+      "2 seconds ellapsed";
+  }, 2000);
 }
 
-window.addEventListener("click", onceClick);
+button?.addEventListener("click", showText);
