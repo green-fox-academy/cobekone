@@ -1,0 +1,33 @@
+.insidediv {
+  height: 300px;
+}
+
+.first {
+  background-color: rgb(39, 197, 0);
+  width: 25%;
+}
+
+.second {
+  background-color: rgb(255, 230, 0);
+  width: 50%;
+}
+
+.third {
+  background-color: rgb(160, 0, 160);
+  width: 25%;
+}
+
+.divcontainer {
+  display: flex;
+}
+
+@media (max-width: 800px) {
+  .divcontainer {
+    display: inline;
+  }
+  .first,
+  .second,
+  .third {
+    width: 100%;
+  }
+}
