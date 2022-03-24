@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <title>Movie Selector</title>
+</head>
+<body>
+    <form action="">
+        <p id="title">Movie Selector</p>
+<select name="genre" id="genre">
+    <option value="all" selected disabled>Select a genre</option>
+    <option value="scifi">Sci-fi</option>
+    <option value="drama">Drama</option>
+    <option value="comedy">Comedy</option>
+    </select>
+<select name="movie" id="movie">
+    <option class="all" selected disabled>Select a movie</option>
+    <option class="scifi" value="moon">Moon</option>
+    <option class="scifi" value="2001spaceodyssey">2001: A Space Odyssey</option>
+    <option class="drama" value="contact">Contact</option>
+    <option class="drama" value="darkesthour">Darkest Hour</option>
+    <option class="drama" value="therewillbeblood">There Will Be Blood</option>
+    <option class="comedy" value="americanbeauty">American Beauty</option>
+    <option class="drama" value="airplane">Airplane!</option>
+    <option class="comedy" value="deadpool">Deadpool</option>
+    <option class="comedy" value="waynesworld">Wayne's World</option>
+</select>
+       
+<p>The selected movie is: <a id="selectedmovie"> -</a></p>
+
+    </form>
+    <!-- <img src="https://raw.githubusercontent.com/green-fox-academy/teaching-materials/master/workshop/forms/assets/movie-selector.png?token=GHSAT0AAAAAABQHTJWAUG4KCAZQIDJXU3SAYSF7OMA" alt=""> -->
+</body>
+
+<script src="./script.js"></script>
+</html>
