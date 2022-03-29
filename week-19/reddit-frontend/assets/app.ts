@@ -18,10 +18,18 @@ function postElementGenerator() {
   div.innerHTML = postBlock.outerHTML;
   return div;
 }
+
+function howManyHoursAgo(timestamp: string): number {
+  let todayDate = new Date();
+  let currentDate = new Date(timestamp);
+  let hourPassed = Math.floor(
+    (todayDate.getTime() - currentDate.getTime()) / 3600000
+  );
+  return hourPassed;
+}
+
 function generatePagePosts() {
   getPosts().then((posts) => {
-    console.log(posts);
-    console.log(posts.posts.length);
     for (let i = 0; i < posts.posts.length - 1; i++) {
       postsContainer.appendChild(postElementGenerator());
     }
@@ -32,17 +40,34 @@ function generatePagePosts() {
     let downArrowElements = document.querySelectorAll(".down-arrow");
     let modifyButtonElements = document.querySelectorAll(".modify-button");
     let removeButtonElements = document.querySelectorAll(".remove-button");
-    console.log(counterElements);
+    let timeLabelElements = document.querySelectorAll(".time-label");
     for (let i = 0; i < singlePosts.length; i++) {
       (singlePosts[i] as HTMLElement).style.display = "flex";
       (counterElements[i] as HTMLElement).innerText = posts.posts[i].score;
       (titleElements[i] as HTMLElement).innerText = posts.posts[i].title;
+      if (
+        posts.posts[i].url.substring(0, 7) == "http://" ||
+        posts.posts[i].url.substring(0, 8) == "https://"
+      ) {
+        (titleElements[i] as HTMLElement).setAttribute(
+          "href",
+          `${posts.posts[i].url}`
+        );
+      } else {
+        (titleElements[i] as HTMLElement).setAttribute(
+          "href",
+          `http://${posts.posts[i].url}`
+        );
+      }
       (upArrowElements[i] as HTMLElement).id = `a${posts.posts[i].id}`;
       (downArrowElements[i] as HTMLElement).id = `a${posts.posts[i].id}`;
       (modifyButtonElements[i] as HTMLElement).id = `a${posts.posts[i].id}`;
       (removeButtonElements[i] as HTMLElement).id = `a${posts.posts[i].id}`;
       (singlePosts[i] as HTMLElement).id = `a${posts.posts[i].id}`;
       (counterElements[i] as HTMLElement).id = `a${posts.posts[i].id}`;
+      (timeLabelElements[i] as HTMLElement).innerText = `${howManyHoursAgo(
+        posts.posts[i].timestamp
+      )}`;
     }
   });
 }
@@ -53,19 +78,16 @@ let clickedId: string;
 let clickedClass: string = "";
 
 function voteModifier(event: any) {
-  console.log(event);
   if (event.srcElement.id) {
     clickedId = `${event.srcElement.id}`;
   } else {
     clickedId = `${event.path[1].id}`;
   }
-  console.log(clickedId);
   if (event.srcElement.id) {
     clickedClass = event.srcElement.classList[0];
   } else {
     clickedClass = event.path[1].classList[0];
   }
-  console.log(clickedClass);
 
   if (clickedClass == "up-arrow") {
     voteUp();
@@ -82,7 +104,6 @@ function voteUp(): void {
   })
     .then((resp) => resp.json())
     .then((resp) => {
-      console.log(resp);
       let scoreToUpdate = document.querySelector(
         `#${clickedId}.counter-number`
       ) as HTMLElement;
@@ -95,7 +116,6 @@ function voteDown(): void {
   })
     .then((resp) => resp.json())
     .then((resp) => {
-      console.log(resp);
       let scoreToUpdate = document.querySelector(
         `#${clickedId}.counter-number`
       ) as HTMLElement;
@@ -132,16 +152,10 @@ function openPostWriter(): void {
 }
 
 function returnFromSubmit(event: any) {
-  console.log(event);
   if (
     postWriter.style.visibility == "visible" &&
     (event.path[0].localName == "body" || event.path[0].localName == "header")
   ) {
-    console
-      .log
-      /* event.target.classList[0] == "post-writer" ||
-        event.path[2].classList[0] == "post-writer" */
-      ();
     pageHeader.style.filter = "none";
     pageWrapper.style.filter = "none";
     pageWrapper.style.pointerEvents = "auto";
@@ -157,8 +171,6 @@ submitANewPostButton.addEventListener("click", openPostWriter);
   "submit",
   (e: any) => {
     const data = Object.fromEntries(new FormData(e.target).entries());
-    console.log(data);
-    /* e.preventDefault(); */ //ettől nem frissít az oldal
 
     fetch(`${BASE_URL}/posts`, {
       method: "POST",

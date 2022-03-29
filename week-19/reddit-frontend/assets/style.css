@@ -136,6 +136,9 @@ svg:hover {
 .post-title {
   font-size: 20px;
   line-height: 25px;
+  text-decoration: none;
+  color: rgb(119, 119, 119);
+  font-weight: bolder;
 }
 
 .submitted-info {
