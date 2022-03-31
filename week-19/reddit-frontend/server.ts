@@ -31,8 +31,6 @@ app.get("/", (_req: Request, res: Response) => {
 });
 
 app.get("/posts", (_req: Request, res: Response) => {
-  /* res.sendFile(__dirname + "/index.html"); */
-
   conn.query("SELECT * FROM posts", (err: any, posts: any) => {
     if (err) {
       console.error(`Cannot retrieve data: ${err.toString()}`);
@@ -40,23 +38,21 @@ app.get("/posts", (_req: Request, res: Response) => {
       return null;
     }
     const resultObject = { posts };
-
-    /* console.log(resultObject); */
     return res.status(200).send(resultObject);
   });
 });
 
-app.post("/posts", (req: Request, res: Response) => {
-  /* console.log(req.body); */
+function addslashes(str: string) {
+  return (str + "").replace(/([\\"'])/g, "\\$1").replace(/\0/g, "\\0");
+}
 
+app.post("/posts", (req: Request, res: Response) => {
+  let bodyTitle: string = addslashes(req.body.title);
+  let bodyOwner: string = addslashes(req.body.owner);
+  let bodyUrl: string = addslashes(req.body.url);
   conn.query(
-    "INSERT INTO `reddit`.`posts` (`title`, `url`, `owner`) VALUES ('" +
-      req.body.title +
-      "', '" +
-      req.body.url +
-      "', '" +
-      req.body.owner +
-      "');",
+    "INSERT INTO `reddit`.`posts` (`title`, `url`, `owner`) VALUES (?, ?, ?);",
+    [bodyTitle, bodyOwner, bodyUrl],
     (err: any, _postedContent: any) => {
       if (err) {
         console.error(`Cannot retrieve data: ${err.toString()}`);
@@ -76,7 +72,6 @@ app.post("/posts", (req: Request, res: Response) => {
       }
       const resultObject = { lastPost };
 
-      /* console.log(resultObject); */
       return res.status(200).send(resultObject);
     }
   );

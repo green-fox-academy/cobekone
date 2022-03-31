@@ -44,14 +44,16 @@ function generatePagePosts() {
     for (let i = 0; i < singlePosts.length; i++) {
       (singlePosts[i] as HTMLElement).style.display = "flex";
       (counterElements[i] as HTMLElement).innerText = posts.posts[i].score;
-      (titleElements[i] as HTMLElement).innerText = posts.posts[i].title;
+      (titleElements[i] as HTMLElement).innerText = posts.posts[
+        i
+      ].title.replace(/\\/g, "");
       if (
         posts.posts[i].url.substring(0, 7) == "http://" ||
         posts.posts[i].url.substring(0, 8) == "https://"
       ) {
         (titleElements[i] as HTMLElement).setAttribute(
           "href",
-          `${posts.posts[i].url}`
+          `${posts.posts[i].url.replace(/\\/g, "")}`
         );
       } else {
         (titleElements[i] as HTMLElement).setAttribute(
