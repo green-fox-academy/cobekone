@@ -1,0 +1,30 @@
+.grid {
+    display:flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    background-color: rgb(178, 34, 255);
+}
+
+.inside{
+    width: 80%;
+    height: 70%;
+    background-color: yellow;
+}
+
+.cell2{
+    background-color: rgb(26, 193, 0);
+    grid-area: cell2;
+}
+.grid-container {
+    display:grid;
+    grid-template-areas: '. cell2 cell2'
+    '. cell2 cell2'
+    ;
+    gap: 10px;
+    background-color: rgb(74, 74, 74);
+    height: 500px;
+}
