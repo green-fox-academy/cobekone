@@ -1,0 +1,39 @@
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+
+.help-image{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 600px;
+}
+
+.player-wrapper{
+    margin-left: -300px; /* Ez csak azért, hogy látszódjon a help kép */
+    width: 800px;
+    height: 500px;
+    background-color:rgb(255, 255, 255);
+    box-shadow: 0px 0px 20px black;
+}
+
+.buttoncolor{
+    filter: invert(45%) sepia(43%) saturate(2555%) hue-rotate(163deg) brightness(96%) contrast(101%);
+    width: 20px;
+}
+.pause-svg{
+    filter: invert(45%) sepia(43%) saturate(2555%) hue-rotate(163deg) brightness(96%) contrast(101%);
+}
+
+.visible{
+display: visible;
+}
+
+.hidden{
+display: none;
+}
