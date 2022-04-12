@@ -5,25 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300&display=swap" rel="stylesheet">
     <title>cobekone player</title>
 </head>
 <body>
     <div class="player-wrapper">
-        <audio src="./mp3/Ars_Sonor_-_02_-_Never_Give_Up.mp3"></audio>
+<!--         <audio src="./mp3/Ars_Sonor_-_02_-_Never_Give_Up.mp3"></audio>
         <audio src="./mp3/Organoid_-_09_-_Purple_Drift.mp3"></audio>
-        <audio src="./mp3/project_music-player_music_Doctor_Turtle_-_Doctor_Talos_Answers_The_Door.mp3"></audio>
-        <button class="previous">
-            <img class="buttoncolor" src="./assets/rewind.svg" alt=""></button>
-        <button class="play visible">
-            <img class="buttoncolor" src="./assets/play.svg" alt="">
-        </button>
-        <button class="pause hidden">
-            <img class="buttoncolor" src="./assets/pause.svg" alt="">
-        </button>
-        <button class="next">
-            <img class="buttoncolor" src="./assets/forward.svg" alt="">
-        </button>
+        <audio src="./mp3/project_music-player_music_Doctor_Turtle_-_Doctor_Talos_Answers_The_Door.mp3"></audio> -->
 
+        <div class="upper-section">
+            <div class="left-side">
+
+
+            </div>
+
+            <div class="right-side">
+                <div class="currently-playing"></div>
+
+                <div class="song-selector">
+                    <div class="single-song-container" id="s1">
+                        <div class="number" id="s1">0</div><div class="song-title" id="s1">DJ közvilágításh</div> <div class="song-length" id="s1">0:00</div>
+                        <audio src=""></audio>
+                    </div>
+                </div>
+            </div>            
+        </div>
+   
+        <div class="bottom-section">
+            <div class="playback-controls">
+                <button class="previous">
+                    <img class="buttoncolor" src="./assets/rewind.svg" alt=""></button>
+                <button class="play visible">
+                    <img class="buttoncolor" src="./assets/play.svg" alt="">
+                </button>
+                <button class="pause hidden">
+                    <img class="buttoncolor" src="./assets/pause.svg" alt="">
+                </button>
+                <button class="next">
+                    <img class="buttoncolor" src="./assets/forward.svg" alt="">
+                </button>
+            </div>
+        </div>
     </div>
 
     <img class="help-image" src="./assets/musicplayer_labelled.png" alt="">
