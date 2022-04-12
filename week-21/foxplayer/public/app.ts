@@ -42,7 +42,7 @@ function pauseCurrentTrack():void {
 }
 
 function previousTrack():void {
-    if (currentlySelectedSongInOrder-2 >= 0) {
+    if (currentlySelectedSongInOrder >= 0) {
         pauseCurrentTrack();
         currentlySelectedSongInOrder = songIndexes.indexOf(selectedSongIndex)
         selectedSongIndex = songIndexes[currentlySelectedSongInOrder-1];
@@ -116,4 +116,4 @@ playButton?.addEventListener('click', playCurrentTrack)
 pauseButton?.addEventListener('click', pauseCurrentTrack)
 previousButton?.addEventListener('click',previousTrack)
 nextButton?.addEventListener('click',nextTrack)
-songSelector?.addEventListener('click',songSelectorPlayer)
+songSelector?.addEventListener('click',songSelectorPlayer) 
