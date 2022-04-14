@@ -48,13 +48,22 @@
                     <img class="buttoncolor" src="./assets/forward.svg" alt="">
                 </button>
             </div>
+            <div class = "slidecontainer">
+                <div class="remaining-time">0:00</div>
+                <div id="timeline1">
+                    <input type="range" min="1" max="100" value="0" class="slider" id="myRange">
+                </div>
+                <div class="total-length">0:00</div>
+            </div>
         </div>
     </div>
 
     <img class="help-image" src="./assets/musicplayer_labelled.png" alt="">
 
 </body>
+<script>var exports = {"__esModule": true};</script>
 <script type="text/typescript" src="app.ts"></script>
+<script type="text/typescript" src="seeker.ts"></script>
 
           <script src="https://rawgit.com/Microsoft/TypeScript/master/lib/typescriptServices.js"></script>
           <script src="https://rawgit.com/basarat/typescript-script/master/transpiler.js"></script>
